@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta property="og:type" content="video.other">
+  <meta property="og:video" content="https://raw.githubusercontent.com/Icebreaker-real/AATROX/refs/heads/main/WHAT_ARE_YOU_DOING_AATROX.mp4">
+  <meta property="og:video:type" content="video/mp4">
+  <meta property="og:video:width" content="1280">
+  <meta property="og:video:height" content="720">
+  <meta property="og:title" content="WHAT ARE YOU DOING AATROX">
+  <meta property="og:description" content="Video plays and downloads at the same time.">
+  <meta property="og:image" content="https://i.imgur.com/3X8y7bM.png">
+  <title>Aatrox Meme</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: none;
+    }
+    #clickscreen {
+      position: fixed;
+      inset: 0;
+      background: black;
+      color: white;
+      font-size: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div id="clickscreen">▶ Click Me シ</div>
+
+  <video id="aatroxVideo" loop playsinline>
+    <source src="https://raw.githubusercontent.com/Icebreaker-real/AATROX/refs/heads/main/WHAT_ARE_YOU_DOING_AATROX.mp4" type="video/mp4">
+  </video>
+
+  <script>
+    const vid = document.getElementById("aatroxVideo");
+    const screen = document.getElementById("clickscreen");
+
+    screen.addEventListener("click", () => {
+      screen.style.display = "none";   
+      vid.style.display = "block";     
+      vid.muted = false;               
+      vid.volume = 1.0;               
+      vid.play();                      
+
+    
+      const link = document.createElement("a");
+      link.href = "https://raw.githubusercontent.com/Icebreaker-real/AATROX/refs/heads/main/WHAT_ARE_YOU_DOING_AATROX.mp4";
+      link.download = "WHAT_ARE_YOU_DOING_AATROX.mp4";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  </script>
+</body>
+</html>
